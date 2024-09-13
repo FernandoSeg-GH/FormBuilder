@@ -25,8 +25,12 @@ export default function Home() {
       <Separator className="my-6" />
       <h2 className="text-4xl font-bold col-span-2">Your forms</h2>
       <Separator className="my-6" />
-      <div className="grid gric-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <CreateFormBtn />
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 lg:gap-4">
+        {/* Box for CreateFormBtn */}
+        <div className="w-full">
+          <CreateFormBtn />
+        </div>
+
         <Suspense
           fallback={[1, 2, 3, 4].map((el) => (
             <FormCardSkeleton key={el} />
@@ -60,7 +64,8 @@ function StatsCards(props: StatsCardProps) {
         helperText="All time form visits"
         value={data?.visits.toLocaleString() || ""}
         loading={loading}
-        className="shadow-md shadow-blue-600"
+        className="shadow-md shadow-gray-200"
+      // className="shadow-md shadow-blue-600"
       />
 
       <StatsCard
@@ -69,7 +74,8 @@ function StatsCards(props: StatsCardProps) {
         helperText="All time form submissions"
         value={data?.submissions.toLocaleString() || ""}
         loading={loading}
-        className="shadow-md shadow-yellow-600"
+        className="shadow-md shadow-gray-200"
+      // className="shadow-md shadow-yellow-600"
       />
 
       <StatsCard
@@ -78,7 +84,8 @@ function StatsCards(props: StatsCardProps) {
         helperText="Visits that result in form submission"
         value={data?.submissionRate.toLocaleString() + "%" || ""}
         loading={loading}
-        className="shadow-md shadow-green-600"
+        className="shadow-md shadow-gray-200"
+      // className="shadow-md shadow-green-600"
       />
 
       <StatsCard
@@ -87,7 +94,8 @@ function StatsCards(props: StatsCardProps) {
         helperText="Visits that leaves without interacting"
         value={data?.submissionRate.toLocaleString() + "%" || ""}
         loading={loading}
-        className="shadow-md shadow-red-600"
+        className="shadow-md shadow-gray-200"
+      // className="shadow-md shadow-red-600"
       />
     </div>
   );
@@ -146,7 +154,7 @@ async function FormCards() {
 
 function FormCard({ form }: { form: Form }) {
   return (
-    <Card>
+    <Card className="">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 justify-between">
           <span className="truncate font-bold">{form.name}</span>
